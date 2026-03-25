@@ -39,7 +39,7 @@
 
     html {
       scroll-behavior: smooth;
-      overflow-x: hidden;
+      overflow-x: clip; /* clip (não hidden) funciona corretamente com position:fixed no iOS */
     }
 
     body {
@@ -48,7 +48,7 @@
       color: var(--white);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      overflow-x: clip;
     }
 
     img { display: block; max-width: 100%; }
@@ -897,6 +897,12 @@
       .hero__cta-group { align-items: center; }
       .hero__social-proof { justify-content: center; }
       .step { flex-direction: column; align-items: center; text-align: center; }
+
+      /* headline menor e sem quebras forçadas no mobile */
+      .hero__headline {
+        font-size: 1.9rem;
+      }
+      .hero__headline br { display: none; }
 
       /* badge não transborda em telas estreitas */
       .hero__badge {
