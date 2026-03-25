@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digitalização de operações com time técnico completo | Tecla T</title>
+  <meta name="description" content="+60 empresas tradicionais já digitalizaram operações com a Tecla T. Escopo, prazo e custo definidos antes do desenvolvimento. Nada começa sem alinhamento." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #011669;
+      --navy-dark:  #0A0D2B;
+      --blue-mid:   #0436b2;
+      --blue-light: #4b75f2;
+      --green:      #37D763;
+      --green-light:#A0FA83;
+      --white:      #FFFFFF;
+      --electric:   #1800ff;
+      --teal:       #00e3ca;
+
+      --font-primary:   'Urbanist', sans-serif;
+      --font-secondary: 'Crimson Text', serif;
+
+      --radius-sm:  8px;
+      --radius-md:  16px;
+      --radius-lg:  24px;
+      --radius-xl:  40px;
+
+      --transition: 0.25s ease;
+      --shadow-card: 0 4px 32px rgba(1,22,105,0.18);
+      --shadow-btn:  0 6px 24px rgba(55,215,99,0.35);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-primary);
+      background-color: var(--navy-dark);
+      color: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== TYPOGRAPHY ===== */
+    .headline {
+      font-family: var(--font-secondary);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+    .label-tag {
+      font-family: var(--font-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    /* ===== LAYOUT ===== */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section {
+      padding: 96px 0;
+    }
+    .section--alt {
+      background: var(--navy);
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      border-radius: var(--radius-xl);
+      padding: 17px 36px;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+    .btn--green {
+      background: var(--green);
+      color: var(--navy-dark);
+      box-shadow: var(--shadow-btn);
+    }
+    .btn--green:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(55,215,99,0.45);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--green);
+    }
+    .btn--outline:hover {
+      background: var(--green);
+      color: var(--navy-dark);
+      transform: translateY(-2px);
+    }
+    .btn--large {
+      font-size: 1.125rem;
+      padding: 20px 44px;
+    }
+
+    /* arrow icon */
+    .btn .arrow {
+      width: 18px;
+      height: 18px;
+      transition: transform var(--transition);
+    }
+    .btn:hover .arrow { transform: translateX(4px); }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 18px 0;
+      transition: background var(--transition), backdrop-filter var(--transition), box-shadow var(--transition);
+    }
+    .nav.scrolled {
+      background: rgba(10, 13, 43, 0.92);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.3);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav__logo-text {
+      font-family: var(--font-primary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .nav__logo-text span {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    /* ===== LOGO ===== */
+    .logo-svg {
+      height: 36px;
+      width: auto;
+    }
+    .logo-img {
+      height: 36px;
+      width: auto;
+      mix-blend-mode: screen;
+      display: block;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--navy-dark);
+      position: relative;
+      overflow: hidden;
+      padding-top: 90px;
+    }
+
+    /* decorative pattern bg */
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero__bg-pattern {
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.06;
+      width: 560px;
+      height: 560px;
+    }
+    .hero__bg-glow {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(55,215,99,0.12) 0%, transparent 70%);
+      top: 50%;
+      right: -200px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .hero__bg-glow2 {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(75,117,242,0.14) 0%, transparent 70%);
+      top: 10%;
+      left: -100px;
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(55,215,99,0.12);
+      border: 1px solid rgba(55,215,99,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      margin-bottom: 32px;
+    }
+    .hero__badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+    }
+    .hero__badge span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: 0.08em;
+    }
+
+    .hero__headline {
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+    .hero__headline em {
+      color: var(--green);
+      font-style: normal;
+    }
+
+    .hero__sub {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 40px;
+      max-width: 580px;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .hero__cta-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 64px;
+    }
+
+    .hero__social-proof {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 64px;
+    }
+    .hero__social-proof::-webkit-scrollbar { display: none; }
+    .proof-item {
+      display: flex;
+      flex-direction: column;
+      padding: 0 28px;
+      white-space: nowrap;
+    }
+    .proof-item:first-child { padding-left: 0; }
+    .proof-item__number {
+      font-family: var(--font-secondary);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1;
+    }
+    .proof-item__label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+    .proof-divider {
+      width: 1px;
+      min-width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      align-self: center;
+      flex-shrink: 0;
+    }
+
+    /* ===== PROBLEMS ===== */
+    .problems__header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .problems__headline {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 16px;
+    }
+    .problems__sub {
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    .problems__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+
+    .problem-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .problem-card:hover {
+      border-color: rgba(55,215,99,0.25);
+      background: rgba(55,215,99,0.05);
+      transform: translateY(-4px);
+    }
+    .problem-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .problem-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      background: rgba(55,215,99,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .problem-card__icon svg {
+      width: 26px;
+      height: 26px;
+      color: var(--green);
+    }
+    .problem-card__title {
+      font-family: var(--font-primary);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+    .problem-card__text {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.65;
+    }
+
+    .section__cta-center {
+      text-align: center;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how__header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .how__headline {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 16px;
+    }
+    .how__sub {
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    .how__steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+      margin-bottom: 64px;
+    }
+    .how__steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 26px);
+      right: calc(12.5% + 26px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--green) 0%, rgba(55,215,99,0.15) 100%);
+      z-index: 0;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .step__number {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--navy-dark);
+      border: 2px solid var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .step__number-inner {
+      font-family: var(--font-secondary);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .step__icon {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step__icon svg {
+      width: 12px;
+      height: 12px;
+      color: var(--navy-dark);
+    }
+    .step__title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+    .step__desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    /* ===== DIFFERENTIALS ===== */
+    .diff__header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .diff__headline {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 16px;
+    }
+    .diff__sub {
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+    .diff__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .diff-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+    .diff-card:hover {
+      border-color: rgba(75,117,242,0.35);
+      background: rgba(75,117,242,0.06);
+      transform: translateY(-3px);
+    }
+    .diff-card__icon {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--blue-mid), var(--blue-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .diff-card__icon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--white);
+    }
+    .diff-card__body {}
+    .diff-card__title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+    .diff-card__text {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.65;
+    }
+
+    /* GPTW Badge */
+    .gptw-strip {
+      background: linear-gradient(135deg, rgba(55,215,99,0.1) 0%, rgba(75,117,242,0.1) 100%);
+      border: 1px solid rgba(55,215,99,0.2);
+      border-radius: var(--radius-lg);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .gptw-strip__left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .gptw-badge-img {
+      width: 72px;
+      height: auto;
+      flex-shrink: 0;
+      display: block;
+    }
+    .gptw-strip__text strong {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .gptw-strip__text span {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .gptw-strip__stats {
+      display: flex;
+      gap: 40px;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat__number {
+      font-family: var(--font-secondary);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1;
+    }
+    .stat__label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+    }
+
+    /* ===== FORM ===== */
+    .form-section {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-section::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(55,215,99,0.08) 0%, transparent 65%);
+      right: -200px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .form__layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .form__left {}
+    .form__headline {
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .form__sub {
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 40px;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .form__trust {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+    }
+    .trust-item__check {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      border-radius: 50%;
+      background: rgba(55,215,99,0.15);
+      border: 1px solid rgba(55,215,99,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .trust-item__check svg {
+      width: 11px;
+      height: 11px;
+      color: var(--green);
+    }
+
+    /* Form itself */
+    .form__card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-xl);
+      padding: 48px 40px;
+    }
+    .form__title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .form__desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.02em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      color: var(--white);
+      font-family: var(--font-primary);
+      font-size: 0.95rem;
+      transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+      outline: none;
+      appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--green);
+      background: rgba(55,215,99,0.05);
+      box-shadow: 0 0 0 3px rgba(55,215,99,0.12);
+    }
+    .form-group select option {
+      background: #0d1340;
+      color: #fff;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form__submit {
+      width: 100%;
+      justify-content: center;
+      margin-top: 8px;
+      font-size: 1.05rem;
+      padding: 18px 36px;
+    }
+    .form__privacy {
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: 14px;
+    }
+    .form__privacy a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: underline;
+    }
+
+    /* ===== SUCCESS STATE ===== */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .form-success__icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .form-success__icon svg {
+      width: 36px;
+      height: 36px;
+      color: var(--navy-dark);
+    }
+    .form-success h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .form-success p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+    }
+
+    /* ===== SECTION TITLES ===== */
+    .section-label {
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    /* ===== DECORATIVE LINES ===== */
+    .deco-line {
+      display: block;
+      width: 48px;
+      height: 3px;
+      background: var(--green);
+      border-radius: 2px;
+      margin: 0 auto 20px;
+    }
+    .deco-line--left {
+      margin: 0 0 20px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .diff__grid {
+        grid-template-columns: 1fr;
+      }
+      .how__steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 48px 24px;
+      }
+      .how__steps::before {
+        display: none;
+      }
+      .form__layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 72px 0; }
+      .nav__cta { display: none; }
+
+      .hero__social-proof { gap: 24px; }
+      .proof-divider { display: none; }
+
+      .how__steps {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .step { align-items: flex-start; text-align: left; flex-direction: row; gap: 20px; }
+      .step__number { min-width: 60px; width: 60px; height: 60px; margin-bottom: 0; }
+
+      .problems__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form__card {
+        padding: 32px 24px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .gptw-strip {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 24px;
+      }
+      .gptw-strip__left {
+        flex-direction: column;
+        text-align: center;
+      }
+      .gptw-strip__stats {
+        justify-content: center;
+      }
+
+      .hero__cta-group {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .diff-card {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .hero__content { text-align: center; }
+      .hero__cta-group { align-items: center; }
+      .hero__social-proof { justify-content: center; }
+      .step { flex-direction: column; align-items: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="main-nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo" aria-label="Tecla T - Home">
+          <img src="Logo Tecla T - Branca oficial.png" class="logo-img" alt="Tecla T" />
+        </a>
+
+        <a href="https://form.respondi.app/ex8ys9fc?utm_source=ads&utm_medium=tecla&utm_campaign=softwarehouse&utm_content=lp" target="_blank" rel="noopener" class="btn btn--green nav__cta">
+          Quero meu plano de software
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <!-- decorative T pattern -->
+      <svg class="hero__bg-pattern" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g opacity="1">
+          <rect x="40" y="0" width="320" height="80" rx="20" fill="white"/>
+          <rect x="150" y="0" width="100" height="400" rx="20" fill="white"/>
+        </g>
+      </svg>
+      <div class="hero__bg-glow"></div>
+      <div class="hero__bg-glow2"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <div class="hero__badge-dot"></div>
+          <span>Para empresas que estão digitalizando operações</span>
+        </div>
+
+        <h1 class="headline hero__headline">
+          Seu projeto de software<br/>
+          <em>sai do papel com escopo,</em><br/>
+          prazo e custo definidos.
+        </h1>
+
+        <p class="hero__sub">
+          A Tecla T é o time técnico completo que sua operação precisa para digitalizar processos — sem contratar equipe interna, sem depender de freelancer e sem projeto parado por falta de direcionamento.
+        </p>
+
+        <div class="hero__cta-group">
+          <a href="https://form.respondi.app/ex8ys9fc?utm_source=ads&utm_medium=tecla&utm_campaign=softwarehouse&utm_content=lp" target="_blank" rel="noopener" class="btn btn--green btn--large">
+            Quero meu plano de software
+            <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="9" x2="15" y2="9"/><polyline points="10,4 15,9 10,14"/>
+            </svg>
+          </a>
+          <a href="#how" class="btn btn--outline">
+            Ver como funciona
+          </a>
+        </div>
+
+        <div class="hero__social-proof">
+          <div class="proof-item">
+            <span class="proof-item__number">+60</span>
+            <span class="proof-item__label">Empresas atendidas</span>
+          </div>
+          <div class="proof-divider"></div>
+          <div class="proof-item">
+            <span class="proof-item__number">+100</span>
+            <span class="proof-item__label">Projetos entregues</span>
+          </div>
+          <div class="proof-divider"></div>
+          <div class="proof-item">
+            <span class="proof-item__number">+20</span>
+            <span class="proof-item__label">Segmentos de mercado</span>
+          </div>
+          <div class="proof-divider"></div>
+          <div class="proof-item">
+            <span class="proof-item__number">GPTW</span>
+            <span class="proof-item__label">Certificada 2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROBLEMS ===== -->
+  <section class="section section--alt" id="problems">
+    <div class="container">
+      <div class="problems__header">
+        <span class="label-tag section-label">Você se reconhece em algum desses cenários?</span>
+        <h2 class="headline problems__headline">
+          Os impasses que chegam até nós todo dia
+        </h2>
+        <p class="problems__sub">
+          Empresas que estão digitalizando operações enfrentam os mesmos obstáculos. Veja se algum é o seu.
+        </p>
+      </div>
+
+      <div class="problems__grid">
+        <!-- Card 1 -->
+        <div class="problem-card">
+          <div class="problem-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <h3 class="problem-card__title">Projeto parado com dinheiro já investido</h3>
+          <p class="problem-card__text">Você já gastou com fornecedores, reuniões e tentativas. O software não sai e a operação continua no manual. Antes de qualquer desenvolvimento, a gente mapeia onde o projeto travou e o que falta para avançar.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="problem-card">
+          <div class="problem-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3 class="problem-card__title">Montar equipe interna sai caro e demora</h3>
+          <p class="problem-card__text">Contratar, treinar e reter desenvolvedores qualificados consome tempo e dinheiro que você não tem agora. Com a Tecla T, você tem o time completo ativo em semanas, sem encargo fixo de folha.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="problem-card">
+          <div class="problem-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="problem-card__title">Não tem quem faça — ou quem faça direito</h3>
+          <p class="problem-card__text">O mercado de tech é escasso e caro. Encontrar quem entenda tanto do negócio quanto da tecnologia é raro. Nossa fábrica reúne engenheiros, designers e especialistas de produto num único time dedicado ao seu projeto.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="problem-card">
+          <div class="problem-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </div>
+          <h3 class="problem-card__title">Freelancer sumiu com o projeto na metade</h3>
+          <p class="problem-card__text">Código sem documentação, escopo aberto, sem responsável claro — e você dependendo de uma pessoa para tudo continuar. A Tecla T opera com processo estruturado, time fixo e governança: nada fica na cabeça de um único profissional.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="problem-card">
+          <div class="problem-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3 class="problem-card__title">O sistema não aguenta o crescimento</h3>
+          <p class="problem-card__text">Sua operação cresceu, mas o software virou um gargalo. Ampliar sem reescrever tudo exige quem conhece o código de ponta a ponta. Nosso time assume a evolução técnica enquanto você foca no negócio.</p>
+        </div>
+      </div>
+
+      <div class="section__cta-center">
+        <a href="https://form.respondi.app/ex8ys9fc?utm_source=ads&utm_medium=tecla&utm_campaign=softwarehouse&utm_content=lp" target="_blank" rel="noopener" class="btn btn--green btn--large">
+          Quero destravar meu projeto
+          <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="9" x2="15" y2="9"/><polyline points="10,4 15,9 10,14"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="how__header">
+        <span class="label-tag section-label">Processo estruturado para evitar surpresas</span>
+        <h2 class="headline how__headline">Como funciona</h2>
+        <p class="how__sub">
+          Quatro etapas para transformar um projeto parado num sistema funcionando na sua operação.
+        </p>
+      </div>
+
+      <div class="how__steps">
+        <!-- Step 1 -->
+        <div class="step">
+          <div class="step__number">
+            <span class="step__number-inner">1</span>
+            <div class="step__icon">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 6H6m0 0H2m4 0V2m0 4v4"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="step__title">Diagnóstico técnico</h3>
+          <p class="step__desc">Entendemos seu contexto, seus processos e onde o projeto está travado. Você recebe escopo definido, estimativa de prazo e direcionamento técnico. Nada começa sem esse alinhamento.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step">
+          <div class="step__number">
+            <span class="step__number-inner">2</span>
+            <div class="step__icon">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 6H6m0 0H2m4 0V2m0 4v4"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="step__title">Desenvolvimento estruturado</h3>
+          <p class="step__desc">Time fixo e dedicado ao seu projeto — engenheiros, designers e gestores de produto. Stack definida pelo que o projeto exige, não pelo que é conveniente para o fornecedor.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step">
+          <div class="step__number">
+            <span class="step__number-inner">3</span>
+            <div class="step__icon">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 6H6m0 0H2m4 0V2m0 4v4"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="step__title">Ciclos curtos de entrega</h3>
+          <p class="step__desc">Você valida o que foi construído antes de avançar. Sem caixa preta, sem surpresas no final. Ajustes acontecem no processo, não depois de meses de desenvolvimento.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step">
+          <div class="step__number">
+            <span class="step__number-inner">4</span>
+            <div class="step__icon">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 6l3 3 5-5"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="step__title">Entrega final aprovada</h3>
+          <p class="step__desc">Na entrega final você recebe toda a documentação do projeto: arquitetura, código comentado, manuais e procedimentos. Tudo para que sua equipe possa tocar o sistema de forma independente, com segurança.</p>
+        </div>
+      </div>
+
+      <div class="section__cta-center">
+        <a href="https://form.respondi.app/ex8ys9fc?utm_source=ads&utm_medium=tecla&utm_campaign=softwarehouse&utm_content=lp" target="_blank" rel="noopener" class="btn btn--green btn--large">
+          Quero meu plano de software
+          <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="9" x2="15" y2="9"/><polyline points="10,4 15,9 10,14"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DIFFERENTIALS ===== -->
+  <section class="section section--alt" id="differentials">
+    <div class="container">
+      <div class="diff__header">
+        <span class="label-tag section-label">O que nos diferencia</span>
+        <h2 class="headline diff__headline">Por que a Tecla T e não outra software house</h2>
+        <p class="diff__sub">
+          Processos que garantem que o projeto saia como planejado — sem surpresas técnicas no caminho.
+        </p>
+      </div>
+
+      <div class="diff__grid">
+        <!-- Card 1 -->
+        <div class="diff-card">
+          <div class="diff-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="diff-card__body">
+            <h3 class="diff-card__title">Time fixo que conhece seu negócio</h3>
+            <p class="diff-card__text">Os mesmos profissionais do início ao fim. Sem trocar de desenvolvedor no meio do projeto, sem repasse de contexto que atrasa e sem rotatividade que gera retrabalho pago por você.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="diff-card">
+          <div class="diff-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="diff-card__body">
+            <h3 class="diff-card__title">Você vê o que está sendo feito e quando</h3>
+            <p class="diff-card__text">Sem relatório genérico de "em andamento". Rituais estruturados, documentação atualizada e acesso direto ao progresso real — você sabe exatamente onde está o projeto a qualquer momento.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="diff-card">
+          <div class="diff-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div class="diff-card__body">
+            <h3 class="diff-card__title">Código que não vira problema no futuro</h3>
+            <p class="diff-card__text">Todo projeto acumula dívida técnica quando ninguém cobra padrão de qualidade. Na Tecla T, código limpo, testado e documentado não é promessa — é critério de entrega. Seu time assume o sistema sem surpresas.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="diff-card">
+          <div class="diff-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <div class="diff-card__body">
+            <h3 class="diff-card__title">Tecnologia escolhida pelo seu projeto, não pelo nosso portfólio</h3>
+            <p class="diff-card__text">Não vendemos uma plataforma. Escolhemos a stack certa para o que você precisa construir — levando em conta custo de manutenção, disponibilidade de profissionais e a evolução futura do seu sistema.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GPTW + Stats -->
+      <div class="gptw-strip">
+        <div class="gptw-strip__left">
+          <img src="teclat-institucional.svg" class="gptw-badge-img" alt="Great Place to Work 2025 — Tecla T" />
+          <div class="gptw-strip__text">
+            <strong>Certificada Great Place to Work 2025</strong>
+            <span>Time estável, baixa rotatividade e cultura de entrega — não é coincidência que nossos projetos têm prazo cumprido.</span>
+          </div>
+        </div>
+        <div class="gptw-strip__stats">
+          <div class="stat">
+            <div class="stat__number">+300</div>
+            <div class="stat__label">Colaboradores</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number">4</div>
+            <div class="stat__label">Continentes</div>
+          </div>
+          <div class="stat">
+            <div class="stat__number">+20</div>
+            <div class="stat__label">Segmentos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FORM ===== -->
+  <section class="section form-section" id="form">
+    <div class="container">
+      <div class="form__layout">
+
+        <!-- Left: context -->
+        <div class="form__left">
+          <span class="label-tag section-label">Diagnóstico técnico gratuito</span>
+          <h2 class="headline form__headline">
+            Entenda o que precisa ser feito<br/>
+            <em style="color: var(--green); font-style: normal;">antes de gastar um centavo.</em>
+          </h2>
+          <p class="form__sub">
+            Você fala com um especialista, explica o que precisa construir e recebe um diagnóstico técnico com escopo preliminar e estimativa de prazo. Sem proposta de vendas, sem enrolação.
+          </p>
+          <div class="form__trust">
+            <div class="trust-item">
+              <div class="trust-item__check">
+                <svg viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="1.5,6 4,8.5 9.5,2.5"/>
+                </svg>
+              </div>
+              <span>Diagnóstico técnico gratuito, sem compromisso de contratação</span>
+            </div>
+            <div class="trust-item">
+              <div class="trust-item__check">
+                <svg viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="1.5,6 4,8.5 9.5,2.5"/>
+                </svg>
+              </div>
+              <span>Resposta em até 1 dia útil — sem bot, sem automação</span>
+            </div>
+            <div class="trust-item">
+              <div class="trust-item__check">
+                <svg viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="1.5,6 4,8.5 9.5,2.5"/>
+                </svg>
+              </div>
+              <span>Seus dados tratados com total sigilo e segurança</span>
+            </div>
+            <div class="trust-item">
+              <div class="trust-item__check">
+                <svg viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="1.5,6 4,8.5 9.5,2.5"/>
+                </svg>
+              </div>
+              <span>+60 empresas já passaram por esse processo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: form card -->
+        <div class="form__card">
+          <h3 class="form__title">Solicite seu diagnóstico técnico gratuito</h3>
+          <p class="form__desc">Preencha em 2 minutos. Um especialista entra em contato para entender o seu projeto.</p>
+
+          <form id="lead-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Nome completo *</label>
+                <input type="text" id="name" name="name" placeholder="Seu nome" required />
+              </div>
+              <div class="form-group">
+                <label for="company">Empresa *</label>
+                <input type="text" id="company" name="company" placeholder="Nome da empresa" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">E-mail corporativo *</label>
+                <input type="email" id="email" name="email" placeholder="voce@empresa.com" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefone / WhatsApp *</label>
+                <input type="tel" id="phone" name="phone" placeholder="(85) 9 0000-0000" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="role">Cargo *</label>
+                <input type="text" id="role" name="role" placeholder="Ex: CEO, CTO, Gerente de TI" required />
+              </div>
+              <div class="form-group">
+                <label for="revenue">Faturamento anual *</label>
+                <select id="revenue" name="revenue" required>
+                  <option value="" disabled selected>Selecione uma faixa</option>
+                  <option value="Até R$ 1 milhão">Até R$ 1 milhão</option>
+                  <option value="R$ 1 – 5 milhões">R$ 1 – 5 milhões</option>
+                  <option value="R$ 5 – 20 milhões">R$ 5 – 20 milhões</option>
+                  <option value="R$ 20 – 100 milhões">R$ 20 – 100 milhões</option>
+                  <option value="Acima de R$ 100 milhões">Acima de R$ 100 milhões</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="project">Descreva seu projeto ou desafio</label>
+              <textarea id="project" name="project" placeholder="Conte brevemente o que você precisa construir, melhorar ou resolver. Quanto mais contexto, melhor podemos te ajudar."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--green form__submit">
+              Quero meu plano de software
+              <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="9" x2="15" y2="9"/><polyline points="10,4 15,9 10,14"/>
+              </svg>
+            </button>
+
+            <p class="form__privacy">
+              Ao enviar, você concorda com nossa <a href="#">Política de Privacidade</a>. Sem spam, prometemos.
+            </p>
+          </form>
+
+          <!-- Success state -->
+          <div class="form-success" id="form-success">
+            <div class="form-success__icon">
+              <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6,19 13,26 30,10"/>
+              </svg>
+            </div>
+            <h3>Mensagem enviada!</h3>
+            <p>Nosso time entrará em contato em até 1 dia útil. Fique de olho no seu e-mail.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // --- NAV scroll behavior ---
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // --- Phone mask ---
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+      phoneInput.addEventListener('input', (e) => {
+        let v = e.target.value.replace(/\D/g, '');
+        if (v.length > 11) v = v.slice(0, 11);
+        if (v.length >= 7) {
+          v = `(${v.slice(0,2)}) ${v.slice(2,3)} ${v.slice(3,7)}-${v.slice(7)}`;
+        } else if (v.length >= 3) {
+          v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+        } else if (v.length > 0) {
+          v = `(${v}`;
+        }
+        e.target.value = v;
+      });
+    }
+
+    // --- CONFIGURE: cole aqui a URL gerada pelo Apps Script após implantar ---
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxdvxvFN6PvFl2ubjXppc2bxtrr7ghaQW0T-5t1GngBudYwsD2HhSiw1bJb_-Vsvl1-/exec';
+
+    // --- Form submission ---
+    const form = document.getElementById('lead-form');
+    const successEl = document.getElementById('form-success');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Validação
+      let valid = true;
+      const required = form.querySelectorAll('[required]');
+      required.forEach(field => {
+        field.style.borderColor = '';
+        if (!field.value.trim()) {
+          field.style.borderColor = '#ff4d4d';
+          valid = false;
+        }
+        if (field.type === 'email' && field.value && !field.value.includes('@')) {
+          field.style.borderColor = '#ff4d4d';
+          valid = false;
+        }
+      });
+
+      if (!valid) return;
+
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      // Enviar dados para o Google Sheets via Apps Script
+      const formData = new URLSearchParams();
+      formData.append('name',    document.getElementById('name').value);
+      formData.append('company', document.getElementById('company').value);
+      formData.append('email',   document.getElementById('email').value);
+      formData.append('phone',   document.getElementById('phone').value);
+      formData.append('role',    document.getElementById('role').value);
+      formData.append('revenue', document.getElementById('revenue').value);
+      formData.append('project', document.getElementById('project').value);
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // necessário para requisições cross-origin ao Apps Script
+        body: formData
+      })
+      .catch(() => {})   // no-cors sempre lança erro de leitura, mas os dados chegam
+      .finally(() => {
+        form.style.display = 'none';
+        successEl.style.display = 'block';
+      });
+    });
+
+    // --- Smooth anchor fix para links internos APENAS ---
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href === '#') return; // skip empty anchors
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // --- Garantir que links externos abrem em nova aba ---
+    document.querySelectorAll('a[href^="http"]').forEach(link => {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    });
+
+    // --- Intersection Observer: animate cards on scroll ---
+    const animEls = document.querySelectorAll('.problem-card, .step, .diff-card');
+    animEls.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    animEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
