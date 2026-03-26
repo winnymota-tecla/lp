@@ -894,29 +894,30 @@
     @media (max-width: 480px) {
       .container { padding: 0 16px; }
 
-      /* --- hero: bloco de contenção geral --- */
+      /* hero__content: contenção absoluta */
       .hero__content {
         text-align: center;
-        overflow: hidden; /* impede qualquer filho de vazar */
         width: 100%;
+        overflow: hidden;
       }
 
-      /* badge: muda de inline-flex para flex para respeitar a largura do pai */
+      /* badge: max-width em vw absoluto (não % relativo) — único jeito
+         de garantir contenção dentro de flex column no iOS Safari */
       .hero__badge {
-        display: flex;
-        max-width: 100%;
-        width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
+        display: inline-flex;
+        max-width: calc(100vw - 32px);
+        flex-wrap: wrap;
+        justify-content: center;
         white-space: normal;
       }
       .hero__badge span {
-        letter-spacing: 0.03em; /* reduz de 0.08em: elimina ~20px de largura extra */
-        font-size: 0.72rem;
+        white-space: normal;
         word-break: break-word;
+        letter-spacing: 0.02em;
+        font-size: 0.7rem;
       }
 
-      /* headline: fonte menor + quebra natural de linha */
+      /* headline: font menor + sem br forçado */
       .hero__headline {
         font-size: 1.85rem;
         word-break: break-word;
@@ -940,7 +941,22 @@
         justify-content: center;
       }
 
-      .hero__social-proof { justify-content: center; }
+      /* social proof: wrap ao invés de scroll interno no mobile
+         (overflow-x: auto dentro de flex-column não é confiável no iOS) */
+      .hero__social-proof {
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow-x: visible;
+        gap: 20px;
+        padding-bottom: 48px;
+      }
+      .proof-item {
+        white-space: normal;
+        padding: 0 12px;
+        align-items: center;
+      }
+      .proof-divider { display: none; }
+
       .step { flex-direction: column; align-items: center; text-align: center; }
     }
   </style>
