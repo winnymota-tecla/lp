@@ -893,29 +893,55 @@
 
     @media (max-width: 480px) {
       .container { padding: 0 16px; }
-      .hero__content { text-align: center; }
-      .hero__cta-group { align-items: center; }
-      .hero__social-proof { justify-content: center; }
-      .step { flex-direction: column; align-items: center; text-align: center; }
 
-      /* headline menor e sem quebras forçadas no mobile */
+      /* --- hero: bloco de contenção geral --- */
+      .hero__content {
+        text-align: center;
+        overflow: hidden; /* impede qualquer filho de vazar */
+        width: 100%;
+      }
+
+      /* badge: muda de inline-flex para flex para respeitar a largura do pai */
+      .hero__badge {
+        display: flex;
+        max-width: 100%;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        white-space: normal;
+      }
+      .hero__badge span {
+        letter-spacing: 0.03em; /* reduz de 0.08em: elimina ~20px de largura extra */
+        font-size: 0.72rem;
+        word-break: break-word;
+      }
+
+      /* headline: fonte menor + quebra natural de linha */
       .hero__headline {
-        font-size: 1.9rem;
+        font-size: 1.85rem;
+        word-break: break-word;
+        overflow-wrap: break-word;
       }
       .hero__headline br { display: none; }
 
-      /* badge não transborda em telas estreitas */
-      .hero__badge {
+      /* subtítulo */
+      .hero__sub {
+        font-size: 1rem;
         max-width: 100%;
-        white-space: normal;
-        text-align: center;
       }
 
-      /* botões ocupam largura total no mobile */
+      /* CTAs: full width */
+      .hero__cta-group {
+        align-items: stretch;
+        width: 100%;
+      }
       .hero__cta-group .btn {
         width: 100%;
         justify-content: center;
       }
+
+      .hero__social-proof { justify-content: center; }
+      .step { flex-direction: column; align-items: center; text-align: center; }
     }
   </style>
 </head>
