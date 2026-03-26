@@ -693,6 +693,10 @@
       border-radius: var(--radius-xl);
       padding: 48px 40px;
     }
+    .form__card--embed {
+      padding: 0;
+      overflow: hidden;
+    }
     .form__title {
       font-size: 1.35rem;
       font-weight: 700;
@@ -952,8 +956,10 @@
       }
       .proof-item {
         white-space: normal;
-        padding: 0 12px;
+        padding: 8px 0;
         align-items: center;
+        flex: 0 0 50%; /* grade 2×2 perfeita no mobile */
+        text-align: center;
       }
       .proof-divider { display: none; }
 
@@ -971,7 +977,7 @@
           <img src="Logo Tecla T - Branca oficial.png" class="logo-img" alt="Tecla T" />
         </a>
 
-        <a href="https://form.respondi.app/ex8ys9fc?utm_source=ads&utm_medium=tecla&utm_campaign=softwarehouse&utm_content=lp" target="_blank" rel="noopener" class="btn btn--green nav__cta">
+        <a href="#form" class="btn btn--green nav__cta">
           Quero meu plano de software
         </a>
       </div>
@@ -994,10 +1000,6 @@
 
     <div class="container">
       <div class="hero__content">
-        <div class="hero__badge">
-          <div class="hero__badge-dot"></div>
-          <span>Para empresas que estão digitalizando operações</span>
-        </div>
 
         <h1 class="headline hero__headline">
           Seu projeto de software<br/>
@@ -1010,7 +1012,7 @@
         </p>
 
         <div class="hero__cta-group">
-          <a href="https://form.respondi.app/ex8ys9fc?utm_source=ads&utm_medium=tecla&utm_campaign=softwarehouse&utm_content=lp" target="_blank" rel="noopener" class="btn btn--green btn--large">
+          <a href="#form" class="btn btn--green btn--large">
             Quero meu plano de software
             <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="3" y1="9" x2="15" y2="9"/><polyline points="10,4 15,9 10,14"/>
@@ -1117,7 +1119,7 @@
       </div>
 
       <div class="section__cta-center">
-        <a href="https://form.respondi.app/ex8ys9fc?utm_source=ads&utm_medium=tecla&utm_campaign=softwarehouse&utm_content=lp" target="_blank" rel="noopener" class="btn btn--green btn--large">
+        <a href="#form" class="btn btn--green btn--large">
           Quero destravar meu projeto
           <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="9" x2="15" y2="9"/><polyline points="10,4 15,9 10,14"/>
@@ -1197,7 +1199,7 @@
       </div>
 
       <div class="section__cta-center">
-        <a href="https://form.respondi.app/ex8ys9fc?utm_source=ads&utm_medium=tecla&utm_campaign=softwarehouse&utm_content=lp" target="_blank" rel="noopener" class="btn btn--green btn--large">
+        <a href="#form" class="btn btn--green btn--large">
           Quero meu plano de software
           <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="9" x2="15" y2="9"/><polyline points="10,4 15,9 10,14"/>
@@ -1329,7 +1331,7 @@
                   <polyline points="1.5,6 4,8.5 9.5,2.5"/>
                 </svg>
               </div>
-              <span>Resposta em até 1 dia útil — sem bot, sem automação</span>
+              <span>Resposta em até 1 dia útil</span>
             </div>
             <div class="trust-item">
               <div class="trust-item__check">
@@ -1350,79 +1352,9 @@
           </div>
         </div>
 
-        <!-- Right: form card -->
-        <div class="form__card">
-          <h3 class="form__title">Solicite seu diagnóstico técnico gratuito</h3>
-          <p class="form__desc">Preencha em 2 minutos. Um especialista entra em contato para entender o seu projeto.</p>
-
-          <form id="lead-form" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Nome completo *</label>
-                <input type="text" id="name" name="name" placeholder="Seu nome" required />
-              </div>
-              <div class="form-group">
-                <label for="company">Empresa *</label>
-                <input type="text" id="company" name="company" placeholder="Nome da empresa" required />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">E-mail corporativo *</label>
-                <input type="email" id="email" name="email" placeholder="voce@empresa.com" required />
-              </div>
-              <div class="form-group">
-                <label for="phone">Telefone / WhatsApp *</label>
-                <input type="tel" id="phone" name="phone" placeholder="(85) 9 0000-0000" required />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="role">Cargo *</label>
-                <input type="text" id="role" name="role" placeholder="Ex: CEO, CTO, Gerente de TI" required />
-              </div>
-              <div class="form-group">
-                <label for="revenue">Faturamento anual *</label>
-                <select id="revenue" name="revenue" required>
-                  <option value="" disabled selected>Selecione uma faixa</option>
-                  <option value="Até R$ 1 milhão">Até R$ 1 milhão</option>
-                  <option value="R$ 1 – 5 milhões">R$ 1 – 5 milhões</option>
-                  <option value="R$ 5 – 20 milhões">R$ 5 – 20 milhões</option>
-                  <option value="R$ 20 – 100 milhões">R$ 20 – 100 milhões</option>
-                  <option value="Acima de R$ 100 milhões">Acima de R$ 100 milhões</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="project">Descreva seu projeto ou desafio</label>
-              <textarea id="project" name="project" placeholder="Conte brevemente o que você precisa construir, melhorar ou resolver. Quanto mais contexto, melhor podemos te ajudar."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn--green form__submit">
-              Quero meu plano de software
-              <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="9" x2="15" y2="9"/><polyline points="10,4 15,9 10,14"/>
-              </svg>
-            </button>
-
-            <p class="form__privacy">
-              Ao enviar, você concorda com nossa <a href="#">Política de Privacidade</a>. Sem spam, prometemos.
-            </p>
-          </form>
-
-          <!-- Success state -->
-          <div class="form-success" id="form-success">
-            <div class="form-success__icon">
-              <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6,19 13,26 30,10"/>
-              </svg>
-            </div>
-            <h3>Mensagem enviada!</h3>
-            <p>Nosso time entrará em contato em até 1 dia útil. Fique de olho no seu e-mail.</p>
-          </div>
+        <!-- Right: embed Respondi -->
+        <div class="form__card form__card--embed">
+          <div data-respondi-container="" data-respondi-mode="regular" data-respondi-src="https://form.respondi.app/EX8ys9fC" data-respondi-width="100%" data-respondi-height="700px"></div>
         </div>
       </div>
     </div>
@@ -1440,76 +1372,6 @@
       }
     });
 
-    // --- Phone mask ---
-    const phoneInput = document.getElementById('phone');
-    if (phoneInput) {
-      phoneInput.addEventListener('input', (e) => {
-        let v = e.target.value.replace(/\D/g, '');
-        if (v.length > 11) v = v.slice(0, 11);
-        if (v.length >= 7) {
-          v = `(${v.slice(0,2)}) ${v.slice(2,3)} ${v.slice(3,7)}-${v.slice(7)}`;
-        } else if (v.length >= 3) {
-          v = `(${v.slice(0,2)}) ${v.slice(2)}`;
-        } else if (v.length > 0) {
-          v = `(${v}`;
-        }
-        e.target.value = v;
-      });
-    }
-
-    // --- CONFIGURE: cole aqui a URL gerada pelo Apps Script após implantar ---
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxdvxvFN6PvFl2ubjXppc2bxtrr7ghaQW0T-5t1GngBudYwsD2HhSiw1bJb_-Vsvl1-/exec';
-
-    // --- Form submission ---
-    const form = document.getElementById('lead-form');
-    const successEl = document.getElementById('form-success');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      // Validação
-      let valid = true;
-      const required = form.querySelectorAll('[required]');
-      required.forEach(field => {
-        field.style.borderColor = '';
-        if (!field.value.trim()) {
-          field.style.borderColor = '#ff4d4d';
-          valid = false;
-        }
-        if (field.type === 'email' && field.value && !field.value.includes('@')) {
-          field.style.borderColor = '#ff4d4d';
-          valid = false;
-        }
-      });
-
-      if (!valid) return;
-
-      const btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = 'Enviando...';
-
-      // Enviar dados para o Google Sheets via Apps Script
-      const formData = new URLSearchParams();
-      formData.append('name',    document.getElementById('name').value);
-      formData.append('company', document.getElementById('company').value);
-      formData.append('email',   document.getElementById('email').value);
-      formData.append('phone',   document.getElementById('phone').value);
-      formData.append('role',    document.getElementById('role').value);
-      formData.append('revenue', document.getElementById('revenue').value);
-      formData.append('project', document.getElementById('project').value);
-
-      fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors', // necessário para requisições cross-origin ao Apps Script
-        body: formData
-      })
-      .catch(() => {})   // no-cors sempre lança erro de leitura, mas os dados chegam
-      .finally(() => {
-        form.style.display = 'none';
-        successEl.style.display = 'block';
-      });
-    });
-
     // --- Smooth anchor fix para links internos APENAS ---
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       const href = link.getAttribute('href');
@@ -1524,6 +1386,17 @@
         }
       });
     });
+
+    // --- Respondi embed script ---
+    (function() {
+      if (!document.querySelector('#respondi_src')) {
+        const script = document.createElement('script');
+        script.setAttribute('async', '');
+        script.id = 'respondi_src';
+        script.src = 'https://embed.respondi.app/embed.js';
+        document.body.appendChild(script);
+      }
+    })();
 
     // --- Garantir que links externos abrem em nova aba ---
     document.querySelectorAll('a[href^="http"]').forEach(link => {
